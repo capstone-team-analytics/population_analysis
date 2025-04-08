@@ -8,6 +8,16 @@ GRANT ALL PRIVILEGES ON fertility_rate TO mariehossbach;
 
 GRANT ALL PRIVILEGES ON gdp TO mariehossbach;
 
+CALL capstone_population_analysis.grant_access('selected_population');
+
+CALL capstone_population_analysis.grant_access('selected_child_mortality');
+
+CALL capstone_population_analysis.grant_access('selected_education');
+
+CALL capstone_population_analysis.grant_access('selected_gdp');
+
+CALL capstone_population_analysis.grant_access('selected_fertility');
+
 
 CREATE TABLE capstone_population_analysis.selected_population AS
 SELECT
@@ -270,7 +280,6 @@ SELECT
   "Tonga"
 FROM capstone_population_analysis."education";
 
-
 CREATE TABLE capstone_population_analysis.selected_child_mortality AS
 SELECT
   "year",
@@ -333,5 +342,24 @@ SELECT
   "Nauru",
   "Samoa",
   "Solomon Islands",
-  "Tonga"
+  "Tonga",
+  -- Calculate the mean while treating NULL as 0 using COALESCE
+  (
+    COALESCE("Uganda", 0) + COALESCE("Nigeria", 0) + COALESCE("Rwanda", 0) + COALESCE("Senegal", 0) + 
+    COALESCE("Ethiopia", 0) + COALESCE("Algeria", 0) + COALESCE("Egypt, Arab Rep.", 0) + 
+    COALESCE("South Africa", 0) + COALESCE("Morocco", 0) + COALESCE("Ghana", 0) + 
+    COALESCE("Brazil", 0) + COALESCE("Colombia", 0) + COALESCE("Paraguay", 0) + COALESCE("Guatemala", 0) + 
+    COALESCE("Haiti", 0) + COALESCE("Canada", 0) + COALESCE("United States", 0) + COALESCE("Chile", 0) + 
+    COALESCE("Argentina", 0) + COALESCE("Panama", 0) + COALESCE("Philippines", 0) + COALESCE("Bangladesh", 0) + 
+    COALESCE("India", 0) + COALESCE("Nepal", 0) + COALESCE("Pakistan", 0) + COALESCE("China", 0) + 
+    COALESCE("Singapore", 0) + COALESCE("Japan", 0) + COALESCE("Malaysia", 0) + COALESCE("Thailand", 0) + 
+    COALESCE("Hungary", 0) + COALESCE("Romania", 0) + COALESCE("Serbia", 0) + COALESCE("Bulgaria", 0) + 
+    COALESCE("Ukraine", 0) + COALESCE("Switzerland", 0) + COALESCE("Norway", 0) + COALESCE("Iceland", 0) + 
+    COALESCE("Denmark", 0) + COALESCE("Sweden", 0) + COALESCE("Oman", 0) + COALESCE("Jordan", 0) + 
+    COALESCE("Lebanon", 0) + COALESCE("Iraq", 0) + COALESCE("Yemen, Rep.", 0) + COALESCE("United Arab Emirates", 0) + 
+    COALESCE("Israel", 0) + COALESCE("Bahrain", 0) + COALESCE("Qatar", 0) + COALESCE("Saudi Arabia", 0) + 
+    COALESCE("Australia", 0) + COALESCE("New Zealand", 0) + COALESCE("Palau", 0) + COALESCE("Kiribati", 0) + 
+    COALESCE("Marshall Islands", 0) + COALESCE("Micronesia, Fed. Sts.", 0) + COALESCE("Nauru", 0) + 
+    COALESCE("Samoa", 0) + COALESCE("Solomon Islands", 0) + COALESCE("Tonga", 0)
+  ) / 60 AS "total"
 FROM capstone_population_analysis."child_mortality";
