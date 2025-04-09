@@ -212,7 +212,7 @@ SELECT
   "Samoa",
   "Solomon Islands",
   "Tonga"
-FROM capstone_population_analysis."gdp";
+FROM capstone_population_analysis."gdp_person";
 
 
 CREATE TABLE capstone_population_analysis.selected_education AS
@@ -363,3 +363,8 @@ SELECT
     COALESCE("Samoa", 0) + COALESCE("Solomon Islands", 0) + COALESCE("Tonga", 0)
   ) / 60 AS "total"
 FROM capstone_population_analysis."child_mortality";
+
+
+
+
+
