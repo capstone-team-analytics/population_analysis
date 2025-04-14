@@ -365,6 +365,10 @@ SELECT
 FROM capstone_population_analysis."child_mortality";
 
 
+CALL capstone_population_analysis.grant_access('melted_1985_population');
+
+CALL capstone_population_analysis.grant_access('melted_1985_fertility');
+
 
 
 
