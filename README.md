@@ -12,12 +12,12 @@ This project seeks to analyze the global population and its growth using data an
 population_analysis/
 ├── data_cleaning/ # Jupyter notebooks for cleaning datasets
 │   ├── data_clean/ # Individual scripts for each dataset
-│   │   ├── cleaning_education.ipynb
-│   │   ├── cleaning_fertility.ipynb
-│   │   ├── cleaning_gdp_person.ipynb
-│   │   ├── cleaning_mortality.ipynb
-│   │   └── cleaning_population.ipynb
-│   └── .DS_Store
+│      ├── cleaning_education.ipynb
+│      ├── cleaning_fertility.ipynb
+│      ├── cleaning_gdp_person.ipynb
+│      ├── cleaning_mortality.ipynb
+│      └── cleaning_population.ipynb
+│   
 │
 ├── data_raw/ # Original raw data (CSV files)
 │   ├── Top_and_Bottom_5_Countries_by_*.csv # Summary data for selected countries
